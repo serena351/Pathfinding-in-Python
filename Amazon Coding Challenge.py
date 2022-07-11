@@ -2,8 +2,8 @@
 from pathfinding.core.grid import Grid; #to create a grid
 from pathfinding.core.diagonal_movement import DiagonalMovement #to allow diagonal movement
 from pathfinding.finder.a_star import AStarFinder #importing A* pathfinding algorithm (this takes weights into
-#account so all walkable nodes will be given the same weight)
-import random #to generate random locations for the additional obstacles
+#account so in this case all walkable nodes will be given the same weight)
+import random #will use this to generate random locations for the additional obstacles
 
 #Phase 1
 #Setting up a 10x10 grid with starting point, delivery point and 4 obstacles at 
@@ -24,7 +24,7 @@ def find_path(matrix):
   finder = AStarFinder(diagonal_movement = DiagonalMovement.always)
   path, runs = finder.find_path(start, end, grid)
   if path != []:
-    print('number of steps required: ', len(path))
+    print('number of steps required: ', runs)
     print('nodes visited: ', path)
   else:
     print("Unable to reach delivery point")
